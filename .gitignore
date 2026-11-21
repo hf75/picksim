@@ -1,0 +1,8 @@
+# Nicht veröffentlichen:
+# HTTPS-Zertifikat mit privatem Schlüssel (von start-vr.bat erzeugt)
+tools/.cert/
+# lokale Einstellungen für Claude Code
+.claude/
+node_modules/
+dist-artifact/
+*.log

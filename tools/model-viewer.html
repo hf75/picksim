@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>PickSim – Modellübersicht (Entwicklung)</title>
+<style>html,body{margin:0;background:#202428;color:#fff;font:13px system-ui}#c{display:block}</style>
+<script type="importmap">{ "imports": { "three": "../vendor/three/three.module.js", "three/addons/": "../vendor/three/addons/" } }</script>
+</head>
+<body>
+<script type="module">
+// Entwicklungswerkzeug: zeigt alle Modelle aus manifest.json von vorne (+Z) mit Achsenkreuz.
+// Rot = +X, Blau = +Z (Kamera schaut aus +Z). ?ids=a,b,c filtert; ?shot=name.jpg lädt ein Bild an den Dev-Server hoch.
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+const params = new URLSearchParams(location.search);
+const W = 1800, H = 1200;
+const r = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+r.setSize(W, H); r.toneMapping = THREE.ACESFilmicToneMapping; r.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(r.domElement);
+const scene = new THREE.Scene(); scene.background = new THREE.Color(0x3a4048);
+scene.environment = new THREE.PMREMGenerator(r).fromScene(new RoomEnvironment(), 0.04).texture;
+scene.add(new THREE.DirectionalLight(0xffffff, 1.5).translateX(2).translateY(4).translateZ(3));
+const man = await (await fetch('../assets/models/manifest.json')).json();
+let ids = Object.keys(man);
+if (params.get('ids')) ids = params.get('ids').split(',');
+const page = Number(params.get('page') || 0), per = 24;
+ids = ids.slice(page * per, page * per + per);
+const cols = 6, cell = 1.6;
+const loader = new GLTFLoader(); loader.setMeshoptDecoder(MeshoptDecoder);
+const labels = [];
+await Promise.all(ids.map((id, i) => new Promise(res => loader.load('../assets/models/' + man[id].file, g => {
+  const o = g.scene; o.rotation.y = THREE.MathUtils.degToRad(Number(params.get('ry') || 0));
+  const b = new THREE.Box3().setFromObject(o); const s = b.getSize(new THREE.Vector3());
+  const k = 1.1 / Math.max(s.x, s.y, s.z); o.scale.setScalar(k);
+  const holder = new THREE.Group(); holder.add(o);
+  const col = i % cols, row = Math.floor(i / cols);
+  holder.position.set((col - (cols - 1) / 2) * cell, -row * cell, 0);
+  const ax = new THREE.AxesHelper(0.45); ax.position.y = 0.02; holder.add(ax);
+  scene.add(holder); labels.push({ id, x: col, y: row, tris: man[id].tris }); res();
+}, undefined, () => res()))));
+const rows = Math.ceil(ids.length / cols);
+const cam = new THREE.PerspectiveCamera(30, W / H, 0.1, 100);
+cam.position.set(0, -((rows - 1) * cell) / 2 + 1.2, 13.5); cam.lookAt(0, -((rows - 1) * cell) / 2 + 0.3, 0);
+r.render(scene, cam);
+const c2 = document.createElement('canvas'); c2.width = W; c2.height = H; const g = c2.getContext('2d');
+g.drawImage(r.domElement, 0, 0);
+g.font = '600 18px system-ui'; g.fillStyle = '#fff';
+for (const l of labels) {
+  const v = new THREE.Vector3((l.x - (cols - 1) / 2) * cell, -l.y * cell - 0.15, 0).project(cam);
+  g.fillText(`${l.id} (${Math.round(l.tris / 1000)}k)`, (v.x + 1) / 2 * W - 70, (1 - v.y) / 2 * H + 18);
+}
+document.body.innerHTML = ''; document.body.appendChild(c2);
+if (params.get('shot')) await fetch('/__shot?name=' + params.get('shot'), { method: 'POST', body: c2.toDataURL('image/jpeg', 0.88) });
+document.title = 'fertig';
+</script>
+</body>
+</html>

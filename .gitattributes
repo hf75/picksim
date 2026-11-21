@@ -1,0 +1,9 @@
+# Zeilenenden im Projekt unverändert lassen (LF), Windows-Startdateien mit CRLF
+* text=auto eol=lf
+*.bat text eol=crlf
+*.glb binary
+*.webp binary
+*.png binary
+*.jpg binary
+*.hdr binary
+*.woff2 binary

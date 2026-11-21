@@ -1,0 +1,1122 @@
+{
+  "forklift": {
+    "file": "forklift.glb",
+    "source": "nvidia/simready-assets:vehicle_forklift_blue_c01/simready_usd/sm_vehicle_forklift_blue_c01_01.usd",
+    "size": [
+      1.363,
+      2.163,
+      3.732
+    ],
+    "tris": 39955,
+    "bytes": 1300076,
+    "front": "+Z",
+    "license": "CC-BY-4.0",
+    "notes": "front = Gabelspitzen; Bewegliche Teile als eigene Knoten: fork1, fork2, mast_stage1, mast_stage2, mast_stage3, mast_stage4, steering_wheel, steering_wheel_handle, wheel1, wheel2, wheel3, wheel4; Transparenz (alphaMode): trans__glass__clear__unique_forklift_c = BLEND; doppelseitige Materialien: opaque__metal__painted_unique_forklift_c.002, opaque__paper__unique_forklift_c.001, opaque__plastic__blue_unique_forklift_c.001; UDIM-Kacheln (8) zu Texturatlas zusammengefasst"
+  },
+  "stacker": {
+    "file": "stacker.glb",
+    "source": "nvidia/simready-assets:vehicle_forklift_orange_a01/simready_usd/sm_vehicle_forklift_orange_a01_01.usd",
+    "size": [
+      0.823,
+      1.957,
+      1.885
+    ],
+    "tris": 39629,
+    "bytes": 675480,
+    "front": "+Z",
+    "license": "CC-BY-4.0",
+    "notes": "front = Gabelspitzen; Deichsel (rudder/handle) auf der -Z-Seite; Bewegliche Teile als eigene Knoten: fork, forkwheels1, forkwheels2, handle, rudder, wheel1, wheel2, wheel3, wheel4; Transparenz (alphaMode): trans__glass__clean_a = BLEND; doppelseitige Materialien: opaque__metal__painted_unique_forklift_a.001, opaque__paper__unique_forklift_a.001, opaque__plastic__blue_unique_forklift_a.001; UDIM-Kacheln (3) zu Texturatlas zusammengefasst"
+  },
+  "reach_truck": {
+    "file": "reach_truck.glb",
+    "source": "nvidia/simready-assets:vehicle_forklift_red_b01/simready_usd/sm_vehicle_forklift_red_b01_01.usd",
+    "size": [
+      1.129,
+      2.933,
+      3.029
+    ],
+    "tris": 39771,
+    "bytes": 652816,
+    "front": "+Z",
+    "license": "CC-BY-4.0",
+    "notes": "front = Gabelspitzen; Kabinen- und Lampenglas als Alpha-Blend; Bewegliche Teile als eigene Knoten: frontwheel, hydraulicsystem, lift, wheel1, wheel2, wheel3, wheel4; Transparenz (alphaMode): trans__glass__clean_a = BLEND, trans__glass__red_a = BLEND; doppelseitige Materialien: 5 Materialien, z. B. opaque__rubber__unique_forklift_b.002, opaque__plastic__red_unique_forklift_b, opaque__paper__unique_forklift_b; UDIM-Kacheln (8) zu Texturatlas zusammengefasst"
+  },
+  "pallet_jack": {
+    "file": "pallet_jack.glb",
+    "source": "nvidia/simready-assets:palletJack_heavyDuty_a01/simready_usd/sm_palletJack_heavyDuty_a01_01.usd",
+    "size": [
+      0.681,
+      1.201,
+      1.601
+    ],
+    "tris": 39822,
+    "bytes": 628552,
+    "front": "+Z",
+    "license": "CC-BY-4.0",
+    "notes": "front = Gabelspitzen; Deichsel auf der -Z-Seite; Bewegliche Teile als eigene Knoten: backwheel1, backwheel2, frontwheel1, frontwheel2, frontwheel3, handle, handlemain, rotatingpart; doppelseitige Materialien: opaque__paper__decal_unique_a, opaque__metal__painted_unique_a.003"
+  },
+  "hand_truck": {
+    "file": "hand_truck.glb",
+    "source": "nvidia/simready-assets:handTruck_convertible_steel_red_a01/simready_usd/sm_handTruck_convertible_steel_red_a01_01.usd",
+    "size": [
+      0.501,
+      1.348,
+      0.481
+    ],
+    "tris": 24775,
+    "bytes": 365876,
+    "front": "+Z",
+    "license": "CC-BY-4.0",
+    "notes": "front = Schaufel (Lastseite); Griff/Bediener auf der -Z-Seite; doppelseitige Materialien: 6 Materialien, z. B. opaque__metal__glossy_a, opaque__metal__painted_red_a, opaque__paper__unique_decal_a"
+  },
+  "scanner_handheld": {
+    "file": "scanner_handheld.glb",
+    "source": "nvidia/simready-assets:computer_scanner_barcode_c01/simready_usd/sm_computer_scanner_barcode_c01_01.usd",
+    "size": [
+      0.071,
+      0.102,
+      0.189
+    ],
+    "tris": 5954,
+    "bytes": 314448,
+    "front": "+Z",
+    "license": "CC-BY-4.0",
+    "notes": "front = +Z (Festlegung Koordinator); Lesefenster zeigt nach -Z, Pistole liegt waagerecht; Kabel und Ladeschale entfernt; doppelseitige Materialien: opaque__plastic__unique_scanner_barcode_c.001"
+  },
+  "scanner_stand": {
+    "file": "scanner_stand.glb",
+    "source": "nvidia/simready-assets:computer_scanner_barcode_a01/simready_usd/sm_computer_scanner_barcode_a01_01.usd",
+    "size": [
+      0.148,
+      0.303,
+      0.192
+    ],
+    "tris": 5970,
+    "bytes": 292640,
+    "front": "+X",
+    "license": "CC-BY-4.0",
+    "notes": "front = Lesefenster; Kabel entfernt; doppelseitige Materialien: opaque__plastic__unique_scanner_barcode_a.001"
+  },
+  "amr_bot": {
+    "file": "amr_bot.glb",
+    "source": "nvidia/simready-assets:robotics_small_bot_a01/simready_usd/sm_robotics_small_bot_a01_01.usd",
+    "size": [
+      0.749,
+      0.195,
+      0.688
+    ],
+    "tris": 24936,
+    "bytes": 825416,
+    "front": "+X",
+    "license": "CC-BY-4.0",
+    "notes": "front = Seite mit frontWheel_01, Kehrbürsten auf der -X-Seite; flacher Roboter ohne Hubplatte; Bewegliche Teile als eigene Knoten: frontWheel_01, leftSweep_01, leftWheel_01, rightSweep_01, rightWheel; Transparenz (alphaMode): m_trans__glass__red_small_bot_a01 = BLEND, m_trans__glass__blue_small_bot_a01 = BLEND; leuchtend (emissive): m_opaque__plastic__emissive_blue_a01, m_opaque__plastic__emissive_red_a01; UDIM-Kacheln (3) zu Texturatlas zusammengefasst"
+  },
+  "amr_charger": {
+    "file": "amr_charger.glb",
+    "source": "nvidia/simready-assets:equipment_robot_charger_a01/simready_usd/sm_equipment_robot_charger_a01_01.usd",
+    "size": [
+      1.973,
+      1.62,
+      5.904
+    ],
+    "tris": 10360,
+    "bytes": 724236,
+    "front": "+X",
+    "license": "CC-BY-4.0",
+    "notes": "Reihe aus 4 Ladesäulen mit Bodenplatten und Trafo-Schrank (5,9 m lang); front = Bedienseite; Dreiecksbudget 10000 überschritten; Transparenz (alphaMode): m_trans__glass__equipment_robot_charger_a01 = BLEND; doppelseitige Materialien: 6 Materialien, z. B. m_opaque__plastic__glossy_black_a01, m_opaque__metal__copper_equipment_robot_charger_a01, m_opaque__plastic__emissive_equipment_robot_charger_a01; leuchtend (emissive): m_opaque__plastic__emissive_equipment_robot_charger_a01; UDIM-Kacheln (4) zu Texturatlas zusammengefasst"
+  },
+  "cart_angle_bins": {
+    "file": "cart_angle_bins.glb",
+    "source": "nvidia/simready-assets:equipment_angle_bin_cart_d01/simready_usd/sm_equipment_angle_bin_cart_d01_01.usd",
+    "size": [
+      0.913,
+      1.52,
+      1.06
+    ],
+    "tris": 24858,
+    "bytes": 667240,
+    "front": "+X",
+    "license": "CC-BY-4.0",
+    "notes": "front = +X (Festlegung Koordinator, Entnahmeseite); doppelseitige Materialien: m_opaque__metal__aluminiumBrushed_e01, m_opaque__rubber__new_black_a01, m_opaque__paper__white_clean_a01"
+  },
+  "cart_multi_tier": {
+    "file": "cart_multi_tier.glb",
+    "source": "nvidia/simready-assets:equipment_multi_tier_bin_cart_c01/simready_usd/sm_equipment_multi_tier_bin_cart_c01_01.usd",
+    "size": [
+      0.596,
+      1.202,
+      0.7
+    ],
+    "tris": 24996,
+    "bytes": 758792,
+    "front": "-X",
+    "license": "CC-BY-4.0",
+    "notes": "front = Griffseite"
+  },
+  "cart_platform": {
+    "file": "cart_platform.glb",
+    "source": "nvidia/simready-assets:cart_luggage_platform_a01/simready_usd/sm_cart_luggage_platform_a01_01.usd",
+    "size": [
+      0.672,
+      0.952,
+      1.219
+    ],
+    "tris": 24945,
+    "bytes": 741728,
+    "front": "+Z",
+    "license": "CC-BY-4.0",
+    "notes": "front = hoher Schiebebügel; doppelseitige Materialien: opaque__metal__glossy_a, opaque__rubber__black_glossy_standard_a, opaque__metal__aluminium_brushed_a, opaque__polyester__gray_glossy_shelf_a"
+  },
+  "scanning_cart": {
+    "file": "scanning_cart.glb",
+    "source": "nvidia/PhysicalAI-SimReady-Warehouse-01:Props/assembly/sm_scanningtablecomposition_a01_01/sm_scanningtablecomposition_a01_01.usd",
+    "size": [
+      0.753,
+      1.446,
+      0.741
+    ],
+    "tris": 39847,
+    "bytes": 1761716,
+    "front": "+Z",
+    "license": "CC-BY-4.0",
+    "notes": "front = Bedienseite mit Monitor und Tastatur; Texturen auf 512 px begrenzt; Transparenz (alphaMode): 5 Materialien, z. B. M_FlatBox_Decal_01 = MASK, trans__decal__cardboardboxopen_a01 = BLEND, trans__decal__keyboard_a = BLEND; doppelseitige Materialien: 27 Materialien, z. B. M_BarcodeScanner_A01_Body, M_BarcodeScanner_B01_Body, M_BarcodeScanner_C01_Body; leuchtend (emissive): emission"
+  },
+  "lift_table": {
+    "file": "lift_table.glb",
+    "source": "nvidia/simready-assets:equipment_liftTable_scissorMobile_a01/simready_usd/sm_equipment_liftTable_scissorMobile_a01_01.usd",
+    "size": [
+      1.306,
+      1.134,
+      0.741
+    ],
+    "tris": 24765,
+    "bytes": 799064,
+    "front": "-X",
+    "license": "CC-BY-4.0",
+    "notes": "front = Deichsel mit Bedienteil; doppelseitige Materialien: m_opaque__plastic__glossy_white_a01, m_opaque__plastic__black_a01, m_opaque__paper__liftTable_a01"
+  },
+  "terminal_rugged": {
+    "file": "terminal_rugged.glb",
+    "source": "nvidia/simready-assets:monitor_a01/simready_usd/sm_monitor_a01_01.usd",
+    "size": [
+      0.075,
+      0.133,
+      0.164
+    ],
+    "tris": 9974,
+    "bytes": 186008,
+    "front": "+X",
+    "license": "CC-BY-4.0",
+    "notes": "front = Bildschirm, geometrisch gemessen +X (Flächennormale des Displays); kleines Gerät (ca. 16 × 13 cm); Transparenz (alphaMode): m_trans__glass__clear_glossy_a01 = BLEND; doppelseitige Materialien: m_opaque__plastic__black_glossy_a01, m_opaque__plastic__black_grainy_a01, m_opaque__metal__painted_white_glossy_a01.004"
+  },
+  "monitor_office": {
+    "file": "monitor_office.glb",
+    "source": "nvidia/simready-assets:computer_monitor_office_a01/simready_usd/sm_computer_monitor_office_a01_01.usd",
+    "size": [
+      0.542,
+      0.394,
+      0.172
+    ],
+    "tris": 9133,
+    "bytes": 199940,
+    "front": "+Z",
+    "license": "CC-BY-4.0",
+    "notes": "front = Bildschirm (Bildinhalt als Emissive-Textur); doppelseitige Materialien: 6 Materialien, z. B. opaque__plastic__glossy_black_a, opaque__plastic__black_a, opaque__plastic__unique_decal_a"
+  },
+  "packing_table": {
+    "file": "packing_table.glb",
+    "source": "nvidia/PhysicalAI-SimReady-Warehouse-01:Props/general/SM_DeluxePackingTable_A01_01/SM_DeluxePackingTable_A01_01.usd",
+    "size": [
+      2.438,
+      1.931,
+      0.975
+    ],
+    "tris": 24795,
+    "bytes": 547360,
+    "front": "+Z",
+    "license": "CC-BY-4.0",
+    "notes": "front = Arbeitsseite (Aufbau mit Fächern hinten); doppelseitige Materialien: 6 Materialien, z. B. Chrome_A, DeluxePackingTable_A_MetalPainted_Gray_Glossy_A, Metal_Glossy_A"
+  },
+  "work_table": {
+    "file": "work_table.glb",
+    "source": "nvidia/PhysicalAI-SimReady-Warehouse-01:Props/general/SM_HeavyDutyPackingTable_C01_01/SM_HeavyDutyPackingTable_C01_01.usd",
+    "size": [
+      1.866,
+      0.994,
+      1.219
+    ],
+    "tris": 24854,
+    "bytes": 1000500,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "symmetrischer Arbeitstisch; doppelseitige Materialien: MetalPainted_Gray_Glossy_A_HeavyDutyPackingTable_C, Metal_Glossy_A_HeavyDutyPackingTable_C, Wood_Laminate_Gray_A_HeavyDutyPackingTable_C, Wood_Pressed_A_HeavyDutyPackingTable_C"
+  },
+  "packing_station_full": {
+    "file": "packing_station_full.glb",
+    "source": "nvidia/PhysicalAI-SimReady-Warehouse-01:Props/assembly/sm_packingtablecomposition_a01_01/sm_packingtablecomposition_a01_01.usd",
+    "size": [
+      2.604,
+      2.027,
+      1.304
+    ],
+    "tris": 39926,
+    "bytes": 2045572,
+    "front": "+Z",
+    "license": "CC-BY-4.0",
+    "notes": "front = Arbeitsseite; Komposition aus Packtisch, Kartons, Drucker, Klebebandabrollern, Papierrollen und Abfallbehälter; Transparenz (alphaMode): 8 Materialien, z. B. M_CubeBox_Decal_01 = MASK, trans__decal__barcodeprinter_a = BLEND, opaque__decal__scotchtape_a = BLEND; doppelseitige Materialien: 18 Materialien, z. B. Chrome_A, DeluxePackingTable_A_MetalPainted_Gray_Glossy_A, M_CubeBox_Cardboard_01; leuchtend (emissive): trans__decal__barcodeprinter_a"
+  },
+  "label_printer": {
+    "file": "label_printer.glb",
+    "source": "nvidia/PhysicalAI-SimReady-Warehouse-01:Props/general/sm_barcodeprinter_a01_01/sm_barcodeprinter_a01_01.usd",
+    "size": [
+      0.271,
+      0.339,
+      0.496
+    ],
+    "tris": 9956,
+    "bytes": 144020,
+    "front": "+Z",
+    "license": "CC-BY-4.0",
+    "notes": "front = Display und Etikettenausgabe; Transparenz (alphaMode): trans__decal__barcodeprinter_a = BLEND; doppelseitige Materialien: 9 Materialien, z. B. opaque__metal__chrome_a, opaque__metal__glossy_barcodeprinter_a, opaque__metal__painted_gray_barcodeprinter_a; leuchtend (emissive): trans__decal__barcodeprinter_a"
+  },
+  "conveyor_straight": {
+    "file": "conveyor_straight.glb",
+    "source": "nvidia/simready-assets:conveyor_belt_a05/simready_usd/sm_conveyor_belt_a05_01.usd",
+    "size": [
+      1.151,
+      1.166,
+      2
+    ],
+    "tris": 24823,
+    "bytes": 614784,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "Förderrichtung entlang Z (2 m lang); doppelseitige Materialien: opaque__plastic__unique_trim_a, opaque__paper__unique_decal_a"
+  },
+  "conveyor_curve": {
+    "file": "conveyor_curve.glb",
+    "source": "nvidia/simready-assets:conveyor_belt_a02/simready_usd/sm_conveyor_belt_a02_01.usd",
+    "size": [
+      2.1,
+      1.166,
+      2.071
+    ],
+    "tris": 24814,
+    "bytes": 635724,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "90°-Kurve; doppelseitige Materialien: opaque__paper__unique_decal_a"
+  },
+  "tote_blue": {
+    "file": "tote_blue.glb",
+    "source": "nvidia/simready-assets:crate_blue_a08/simready_usd/sm_crate_blue_a08_01.usd",
+    "size": [
+      0.605,
+      0.17,
+      0.405
+    ],
+    "tris": 10150,
+    "bytes": 291128,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "Gelochte Wände: das Dreiecksbudget ist nur mit sichtbar zerstörten Lochfeldern erreichbar, daher Fehlergrenze 18 mm; Dreiecksbudget 3000 überschritten; doppelseitige Materialien: opaque__plastic__blue_a"
+  },
+  "tote_gray": {
+    "file": "tote_gray.glb",
+    "source": "nvidia/simready-assets:crate_gray_a08/simready_usd/sm_crate_gray_a08_01.usd",
+    "size": [
+      0.605,
+      0.17,
+      0.405
+    ],
+    "tris": 10143,
+    "bytes": 283444,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "Gelochte Wände: das Dreiecksbudget ist nur mit sichtbar zerstörten Lochfeldern erreichbar, daher Fehlergrenze 18 mm; Dreiecksbudget 3000 überschritten; doppelseitige Materialien: opaque__plastic__gray_a"
+  },
+  "tote_black": {
+    "file": "tote_black.glb",
+    "source": "nvidia/simready-assets:crate_black_a08/simready_usd/sm_crate_black_a08_01.usd",
+    "size": [
+      0.605,
+      0.17,
+      0.405
+    ],
+    "tris": 10148,
+    "bytes": 284340,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "Gelochte Wände: das Dreiecksbudget ist nur mit sichtbar zerstörten Lochfeldern erreichbar, daher Fehlergrenze 18 mm; Dreiecksbudget 3000 überschritten; doppelseitige Materialien: opaque__plastic__black_a"
+  },
+  "tote_yellow": {
+    "file": "tote_yellow.glb",
+    "source": "nvidia/simready-assets:crate_yellow_a07/simready_usd/sm_crate_yellow_a07_01.usd",
+    "size": [
+      0.601,
+      0.17,
+      0.402
+    ],
+    "tris": 8948,
+    "bytes": 185300,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "Gelochte Wände: das Dreiecksbudget ist nur mit sichtbar zerstörten Lochfeldern erreichbar, daher Fehlergrenze 18 mm; Dreiecksbudget 3000 überschritten; doppelseitige Materialien: opaque__plastic__yellow_a"
+  },
+  "tote_green": {
+    "file": "tote_green.glb",
+    "source": "nvidia/simready-assets:crate_green_a20/simready_usd/sm_crate_green_a20_01.usd",
+    "size": [
+      0.612,
+      0.09,
+      0.412
+    ],
+    "tris": 11551,
+    "bytes": 262104,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "Flache Schale mit gelochten Wänden: Budget nur mit zerstörten Lochfeldern erreichbar, daher Fehlergrenze 18 mm; Dreiecksbudget 3000 überschritten; doppelseitige Materialien: opaque__plastic__green_a"
+  },
+  "tote_orange": {
+    "file": "tote_orange.glb",
+    "source": "nvidia/simready-assets:crate_orange_a19/simready_usd/sm_crate_orange_a19_01.usd",
+    "size": [
+      0.601,
+      0.1,
+      0.402
+    ],
+    "tris": 13130,
+    "bytes": 168760,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "Flache Schale mit gelochten Wänden: Budget nur mit zerstörten Lochfeldern erreichbar, daher Fehlergrenze 18 mm; Dreiecksbudget 3000 überschritten; doppelseitige Materialien: opaque__plastic__orange_a"
+  },
+  "tote_red": {
+    "file": "tote_red.glb",
+    "source": "nvidia/simready-assets:crate_red_a19/simready_usd/sm_crate_red_a19_01.usd",
+    "size": [
+      0.601,
+      0.1,
+      0.402
+    ],
+    "tris": 13152,
+    "bytes": 170212,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "Flache Schale mit gelochten Wänden: Budget nur mit zerstörten Lochfeldern erreichbar, daher Fehlergrenze 18 mm; Dreiecksbudget 3000 überschritten; doppelseitige Materialien: opaque__plastic__red_a"
+  },
+  "storage_box": {
+    "file": "storage_box.glb",
+    "source": "nvidia/simready-assets:storage_box_a01/simready_usd/sm_storage_box_a01_01.usd",
+    "size": [
+      0.753,
+      0.53,
+      1.047
+    ],
+    "tris": 4318,
+    "bytes": 242864,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "große Transportkiste mit Deckel (Deckel als eigener Knoten); Dreiecksbudget 3000 überschritten; Bewegliche Teile als eigene Knoten: lid_01; UDIM-Kacheln (4) zu Texturatlas zusammengefasst"
+  },
+  "box_a": {
+    "file": "box_a.glb",
+    "source": "nvidia/simready-assets:box_cardboard_a01/simready_usd/sm_box_cardboard_a01_01.usd",
+    "size": [
+      0.699,
+      0.51,
+      0.521
+    ],
+    "tris": 554,
+    "bytes": 33220,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": ""
+  },
+  "box_b": {
+    "file": "box_b.glb",
+    "source": "nvidia/simready-assets:box_cardboard_b01/simready_usd/sm_box_cardboard_b01_01.usd",
+    "size": [
+      0.51,
+      0.521,
+      0.51
+    ],
+    "tris": 560,
+    "bytes": 40844,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": ""
+  },
+  "box_c": {
+    "file": "box_c.glb",
+    "source": "nvidia/simready-assets:box_cardboard_c01/simready_usd/sm_box_cardboard_c01_01.usd",
+    "size": [
+      0.513,
+      0.26,
+      0.511
+    ],
+    "tris": 300,
+    "bytes": 36460,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": ""
+  },
+  "box_d": {
+    "file": "box_d.glb",
+    "source": "nvidia/simready-assets:box_cardboard_d01/simready_usd/sm_box_cardboard_d01_01.usd",
+    "size": [
+      0.345,
+      0.166,
+      0.264
+    ],
+    "tris": 354,
+    "bytes": 42480,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": ""
+  },
+  "box_flat": {
+    "file": "box_flat.glb",
+    "source": "nvidia/simready-assets:box_flat_a01/simready_usd/sm_box_flat_a01_01.usd",
+    "size": [
+      0.15,
+      0.058,
+      0.16
+    ],
+    "tris": 2987,
+    "bytes": 128020,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "doppelseitige Materialien: opaque__cardboard__brown_standard_a, opaque__cardboard__unique_edges_a"
+  },
+  "box_cube": {
+    "file": "box_cube.glb",
+    "source": "nvidia/simready-assets:box_cube_a01/simready_usd/sm_box_cube_a01_01.usd",
+    "size": [
+      0.106,
+      0.105,
+      0.105
+    ],
+    "tris": 2990,
+    "bytes": 128600,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "doppelseitige Materialien: opaque__cardboard__unique_box_cube_a, opaque__cardboard__unique_border_a"
+  },
+  "box_long": {
+    "file": "box_long.glb",
+    "source": "nvidia/simready-assets:box_long_a01/simready_usd/sm_box_long_a01_01.usd",
+    "size": [
+      0.08,
+      0.08,
+      0.156
+    ],
+    "tris": 2794,
+    "bytes": 127360,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "doppelseitige Materialien: opaque__cardboard__brown_standard_a, opaque__paper__unique_decal_a"
+  },
+  "box_multi": {
+    "file": "box_multi.glb",
+    "source": "nvidia/simready-assets:box_multiDepth_a01/simready_usd/sm_box_multiDepth_a01_01.usd",
+    "size": [
+      0.202,
+      0.206,
+      0.204
+    ],
+    "tris": 2983,
+    "bytes": 123240,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "doppelseitige Materialien: opaque__cardboard__brown_a, opaque__paper__decals_unique_box_multidepth_a"
+  },
+  "box_shipping": {
+    "file": "box_shipping.glb",
+    "source": "nvidia/simready-assets:box_printer_a01/simready_usd/sm_box_printer_a01_01.usd",
+    "size": [
+      0.277,
+      0.256,
+      0.434
+    ],
+    "tris": 1957,
+    "bytes": 117040,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "doppelseitige Materialien: opaque__cardboard__unique_box_cube_a, opaque__cardboard__unique_border_a"
+  },
+  "box_open": {
+    "file": "box_open.glb",
+    "source": "nvidia/simready-assets:box_cardboard_open_a01/simready_usd/sm_box_cardboard_open_a01_01.usd",
+    "size": [
+      0.636,
+      0.302,
+      0.512
+    ],
+    "tris": 2686,
+    "bytes": 120276,
+    "front": "+Z",
+    "license": "CC-BY-4.0",
+    "notes": "front = niedrige Entnahmeöffnung; doppelseitige Materialien: opaque__cardboard__white_standard_a, opaque__cardboard__brown_standard_a, opaque__paper__unique_decal_a"
+  },
+  "pallet": {
+    "file": "pallet.glb",
+    "source": "nvidia/simready-assets:pallet_a01/simready_usd/sm_pallet_a01_01.usd",
+    "size": [
+      1.204,
+      0.209,
+      0.8
+    ],
+    "tris": 1988,
+    "bytes": 104168,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "Europalette 1,2 × 0,8 m"
+  },
+  "pallet_b": {
+    "file": "pallet_b.glb",
+    "source": "nvidia/simready-assets:pallet_b01/simready_usd/sm_pallet_b01_01.usd",
+    "size": [
+      1.21,
+      0.209,
+      1.003
+    ],
+    "tris": 1982,
+    "bytes": 99380,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "Industriepalette 1,2 × 1,0 m"
+  },
+  "pallet_load_a": {
+    "file": "pallet_load_a.glb",
+    "source": "nvidia/simready-assets:pallet_assembly_a02/simready_usd/sm_pallet_assembly_a02_01.usd",
+    "size": [
+      0.9,
+      0.505,
+      0.903
+    ],
+    "tris": 11935,
+    "bytes": 846224,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "Kartons auf 0,9 × 0,9 m Palette; doppelseitige Materialien: opaque__cardboard__edges_unique_pallet_assembly_a, opaque__cardboard__brown_a"
+  },
+  "pallet_load_wrapped": {
+    "file": "pallet_load_wrapped.glb",
+    "source": "nvidia/simready-assets:pallet_assembly_b01/simready_usd/sm_pallet_assembly_b01_01.usd",
+    "size": [
+      1.33,
+      0.559,
+      1.114
+    ],
+    "tris": 11959,
+    "bytes": 699732,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "doppelseitige Materialien: opaque__cardboard__edges_trim_a, opaque__cardboard__brown_a, opaque__plastic__tarp_green_a, opaque__metal__glossy_a"
+  },
+  "pallet_load_b": {
+    "file": "pallet_load_b.glb",
+    "source": "nvidia/simready-assets:pallet_assembly_brown_e04/simready_usd/sm_pallet_assembly_brown_e04_01.usd",
+    "size": [
+      1.01,
+      0.866,
+      1.199
+    ],
+    "tris": 11875,
+    "bytes": 982852,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "doppelseitige Materialien: opaque__cardboard__brown_e, opaque__paper__unique_pallet_e"
+  },
+  "pallet_load_mixed": {
+    "file": "pallet_load_mixed.glb",
+    "source": "nvidia/simready-assets:pallet_assembly_mixed_e05/simready_usd/sm_pallet_assembly_mixed_e05_01.usd",
+    "size": [
+      1.067,
+      0.996,
+      1.248
+    ],
+    "tris": 14161,
+    "bytes": 1017368,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "Dreiecksbudget 12000 überschritten; Transparenz (alphaMode): trans__nylon__white_e = BLEND; doppelseitige Materialien: opaque__nylon__unique_pallet_e, opaque__cardboard__brown_e, opaque__cardboard__white_e"
+  },
+  "pallet_load_foil": {
+    "file": "pallet_load_foil.glb",
+    "source": "nvidia/simready-assets:pallet_assembly_transparent_a01/simready_usd/sm_pallet_assembly_transparent_a01_01.usd",
+    "size": [
+      0.663,
+      0.499,
+      0.658
+    ],
+    "tris": 11959,
+    "bytes": 808824,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "Halbpalette mit Stretchfolie (transparent); Transparenz (alphaMode): trans__nylon__white_a = BLEND; doppelseitige Materialien: opaque__nylon__unique_pallet_a, opaque__cardboard__brown_a"
+  },
+  "crate_pile": {
+    "file": "crate_pile.glb",
+    "source": "nvidia/PhysicalAI-SimReady-Warehouse-01:Props/assembly/WarehousePile_A1/WarehousePile_A1.usd",
+    "size": [
+      3.524,
+      2.021,
+      3.083
+    ],
+    "tris": 28486,
+    "bytes": 910252,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "Holzkisten und Kartons gestapelt (3,5 × 3,1 m Grundfläche); Texturen auf 512 px begrenzt; Dreiecksbudget 12000 überschritten; UDIM-Kacheln (4) zu Texturatlas zusammengefasst"
+  },
+  "pallet_crates": {
+    "file": "pallet_crates.glb",
+    "source": "nvidia/PhysicalAI-SimReady-Warehouse-01:Props/assembly/sm_palletcomposition_a100_01/sm_palletcomposition_a100_01.usd",
+    "size": [
+      1.2,
+      1.047,
+      0.8
+    ],
+    "tris": 80762,
+    "bytes": 1161940,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "Kunststoffpalette mit gestapelten gelochten Kisten; Dreiecksbudget 12000 überschritten; doppelseitige Materialien: Plastic_Glossy_White_A, Plastic_Black_A, Plastic_Green_A, Plastic_Orange_A"
+  },
+  "p_hammer": {
+    "file": "p_hammer.glb",
+    "source": "nvidia/simready-assets:handTool_hammer_crossPeen_a01/simready_usd/sm_handTool_hammer_crossPeen_a01_01.usd",
+    "size": [
+      0.394,
+      0.045,
+      0.13
+    ],
+    "tris": 5960,
+    "bytes": 60976,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": ""
+  },
+  "p_mallet": {
+    "file": "p_mallet.glb",
+    "source": "nvidia/simready-assets:handTool_hammer_rubberMallet_a01/simready_usd/sm_handTool_hammer_rubberMallet_a01_01.usd",
+    "size": [
+      0.394,
+      0.071,
+      0.131
+    ],
+    "tris": 5960,
+    "bytes": 54780,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": ""
+  },
+  "p_pliers": {
+    "file": "p_pliers.glb",
+    "source": "nvidia/simready-assets:handTool_pliers_combination_a01/simready_usd/sm_handTool_pliers_combination_a01_01.usd",
+    "size": [
+      0.189,
+      0.026,
+      0.069
+    ],
+    "tris": 5960,
+    "bytes": 235672,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": ""
+  },
+  "p_wrench": {
+    "file": "p_wrench.glb",
+    "source": "nvidia/simready-assets:handTool_wrench_adjustable_a01/simready_usd/sm_handTool_wrench_adjustable_a01_01.usd",
+    "size": [
+      0.209,
+      0.014,
+      0.056
+    ],
+    "tris": 5826,
+    "bytes": 114716,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "doppelseitige Materialien: m_opaque__plastic__glossy_white_a01"
+  },
+  "p_screwdriver": {
+    "file": "p_screwdriver.glb",
+    "source": "nvidia/simready-assets:handTool_screwdriver_phillips_ph2_a01/simready_usd/sm_handTool_screwdriver_phillips_ph2_a01_01.usd",
+    "size": [
+      0.188,
+      0.032,
+      0.034
+    ],
+    "tris": 5976,
+    "bytes": 119148,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "doppelseitige Materialien: m_opaque__plastic__phillips_ph2_a01"
+  },
+  "p_ratchet": {
+    "file": "p_ratchet.glb",
+    "source": "nvidia/simready-assets:handTool_ratchet_a01/simready_usd/sm_handTool_ratchet_a01_01.usd",
+    "size": [
+      0.386,
+      0.03,
+      0.044
+    ],
+    "tris": 5974,
+    "bytes": 65096,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": ""
+  },
+  "p_knife": {
+    "file": "p_knife.glb",
+    "source": "nvidia/simready-assets:handTool_knife_foldingUtility_a01/simready_usd/sm_handTool_knife_foldingUtility_a01_01.usd",
+    "size": [
+      0.035,
+      0.009,
+      0.184
+    ],
+    "tris": 5974,
+    "bytes": 65076,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "doppelseitige Materialien: m_opaque__metal__paintedNoise_black_a01"
+  },
+  "p_torque_wrench": {
+    "file": "p_torque_wrench.glb",
+    "source": "nvidia/simready-assets:handTool_torque_wrench_a01/simready_usd/sm_handTool_torque_wrench_a01_01.usd",
+    "size": [
+      0.4,
+      0.05,
+      0.057
+    ],
+    "tris": 5968,
+    "bytes": 110612,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "Transparenz (alphaMode): m_trans__glass__scratchedGlossy_a01 = BLEND; doppelseitige Materialien: m_opaque__metal__brushedAniso_clean_a01"
+  },
+  "p_cookies": {
+    "file": "p_cookies.glb",
+    "source": "nvidia/simready-assets:food_processed_boxedFood_a01/simready_usd/sm_food_processed_boxedFood_a01_01.usd",
+    "size": [
+      0.078,
+      0.049,
+      0.128
+    ],
+    "tris": 5022,
+    "bytes": 57588,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": ""
+  },
+  "p_juice": {
+    "file": "p_juice.glb",
+    "source": "nvidia/simready-assets:food_beverage_boxedDrink_a01/simready_usd/sm_food_beverage_boxedDrink_a01_01.usd",
+    "size": [
+      0.041,
+      0.105,
+      0.064
+    ],
+    "tris": 3348,
+    "bytes": 109904,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": ""
+  },
+  "p_markers": {
+    "file": "p_markers.glb",
+    "source": "nvidia/simready-assets:stationery_marker_alcohol_box_a01/simready_usd/sm_stationery_marker_alcohol_box_a01_01.usd",
+    "size": [
+      0.037,
+      0.07,
+      0.101
+    ],
+    "tris": 5951,
+    "bytes": 111708,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "Transparenz (alphaMode): m_trans__plastic__markers_alcohol_box_a01 = BLEND"
+  },
+  "p_toolcase": {
+    "file": "p_toolcase.glb",
+    "source": "nvidia/simready-assets:storage_toolbox_carry_hardCase_b01/simready_usd/sm_storage_toolbox_carry_hardCase_b01_01.usd",
+    "size": [
+      0.327,
+      0.086,
+      0.456
+    ],
+    "tris": 5975,
+    "bytes": 199956,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": ""
+  },
+  "p_gloves": {
+    "file": "p_gloves.glb",
+    "source": "nvidia/simready-assets:ppe_gloves_leather_a01/simready_usd/sm_ppe_gloves_leather_a01_01.usd",
+    "size": [
+      0.29,
+      0.098,
+      0.394
+    ],
+    "tris": 5930,
+    "bytes": 269676,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "UDIM-Kacheln (2) zu Texturatlas zusammengefasst"
+  },
+  "p_bulb": {
+    "file": "p_bulb.glb",
+    "source": "nvidia/simready-assets:consumable_lightBulb_h7_a01/simready_usd/sm_consumable_lightBulb_h7_a01_01.usd",
+    "size": [
+      0.093,
+      0.048,
+      0.043
+    ],
+    "tris": 5989,
+    "bytes": 109504,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "Transparenz (alphaMode): m_trans__glass__clean_a01 = BLEND; doppelseitige Materialien: m_opaque__plastic__black_a01"
+  },
+  "p_glovebox": {
+    "file": "p_glovebox.glb",
+    "source": "nvidia/simready-assets:box_glove_a01/simready_usd/sm_box_glove_a01_01.usd",
+    "size": [
+      0.178,
+      0.056,
+      0.117
+    ],
+    "tris": 2510,
+    "bytes": 50520,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": ""
+  },
+  "p_helmet": {
+    "file": "p_helmet.glb",
+    "source": "nvidia/simready-assets:ppe_helmet_hardHat_a01/simready_usd/sm_ppe_helmet_hardHat_a01_01.usd",
+    "size": [
+      0.289,
+      0.172,
+      0.207
+    ],
+    "tris": 5945,
+    "bytes": 162340,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": ""
+  },
+  "extinguisher": {
+    "file": "extinguisher.glb",
+    "source": "nvidia/PhysicalAI-SimReady-Warehouse-01:Props/general/SM_ABCFireExtinguisher_A03_01/SM_ABCFireExtinguisher_A03_01.usd",
+    "size": [
+      0.144,
+      0.545,
+      0.192
+    ],
+    "tris": 9899,
+    "bytes": 205740,
+    "front": "+X",
+    "license": "CC-BY-4.0",
+    "notes": "front = Etikett; Wandhalter auf der -X-Seite; Transparenz (alphaMode): M_ABCFireExtinguisher_A01_Decal = BLEND, M_ABCFireExtinguisher_A01_Glass = BLEND; doppelseitige Materialien: M_ABCFireExtinguisher_A01_Decal"
+  },
+  "extinguisher_stand": {
+    "file": "extinguisher_stand.glb",
+    "source": "nvidia/PhysicalAI-SimReady-Warehouse-01:Props/general/sm_fireextinguisherstand_a01_01/sm_fireextinguisherstand_a01_01.usd",
+    "size": [
+      0.448,
+      1.211,
+      0.454
+    ],
+    "tris": 9982,
+    "bytes": 275716,
+    "front": "-Z",
+    "license": "CC-BY-4.0",
+    "notes": "front = Hinweisschild am Ständer; Transparenz (alphaMode): trans__decal__paper_fireextinguisherstand_a = BLEND, trans__glass__fireextinguisherstand_a = BLEND; doppelseitige Materialien: opaque__decal__fireextinguisherstand_a, trans__decal__paper_fireextinguisherstand_a"
+  },
+  "guard_rail": {
+    "file": "guard_rail.glb",
+    "source": "nvidia/PhysicalAI-SimReady-Warehouse-01:Props/general/SM_GuardRail_A09_01/SM_GuardRail_A09_01.usd",
+    "size": [
+      2.786,
+      1.009,
+      0.254
+    ],
+    "tris": 9997,
+    "bytes": 64296,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": ""
+  },
+  "guard_frame": {
+    "file": "guard_frame.glb",
+    "source": "nvidia/PhysicalAI-SimReady-Warehouse-01:Props/general/MetalFencing_A2/MetalFencing_A2.usd",
+    "size": [
+      1.23,
+      1.072,
+      0.23
+    ],
+    "tris": 3386,
+    "bytes": 108584,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "doppelseitige Materialien: Fencing"
+  },
+  "wire_fence": {
+    "file": "wire_fence.glb",
+    "source": "nvidia/PhysicalAI-SimReady-Warehouse-01:Props/general/SM_WireSecurityRoom_B01_01/SM_WireSecurityRoom_B01_01.usd",
+    "size": [
+      2.683,
+      3.073,
+      0.137
+    ],
+    "tris": 9951,
+    "bytes": 75640,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "Gitterwand mit Tür; Gitter als Geometrie; doppelseitige Materialien: AnodizedSteel_Orange_SemiGloss_A_WireSecurityRoom_A, Metal_Glossy_A_WireSecurityRoom_A, MetalPainted_Gray_Glossy_A_WireSecurityRoom_A, Plastic_Black_A_WireSecurityRoom_A"
+  },
+  "ladder_step": {
+    "file": "ladder_step.glb",
+    "source": "nvidia/PhysicalAI-SimReady-Warehouse-01:Props/general/SM_AluminumStepLadder_A06_01_1/SM_AluminumStepLadder_A06_01_1.usd",
+    "size": [
+      0.602,
+      1.753,
+      1.071
+    ],
+    "tris": 9943,
+    "bytes": 226984,
+    "front": "+Z",
+    "license": "CC-BY-4.0",
+    "notes": "front = Trittseite; Transparenz (alphaMode): M_AluminumStepLadder_A01_Decal = BLEND; doppelseitige Materialien: Aluminium_Brushed_B, M_AluminumStepLadder_A01_Decal, Plastic_Orange_A, Plastic_Rough_Black_A"
+  },
+  "ladder_rolling": {
+    "file": "ladder_rolling.glb",
+    "source": "nvidia/PhysicalAI-SimReady-Warehouse-01:Props/general/SM_GripStepRollingLadder_A01_01/SM_GripStepRollingLadder_A01_01.usd",
+    "size": [
+      0.757,
+      1.522,
+      0.655
+    ],
+    "tris": 9985,
+    "bytes": 393948,
+    "front": "+Z",
+    "license": "CC-BY-4.0",
+    "notes": "front = Treppenaufgang; Transparenz (alphaMode): M_GripStepRollingLadder_Stickers_A01 = BLEND; doppelseitige Materialien: Plastic_Black_A, Rubber_Black_Glossy_A, M_GripStepRollingLadder_Stickers_A01, Steel_A"
+  },
+  "sign_wet": {
+    "file": "sign_wet.glb",
+    "source": "nvidia/simready-assets:sign_wetFloor_a01/simready_usd/sm_sign_wetFloor_a01_01.usd",
+    "size": [
+      0.28,
+      0.64,
+      0.235
+    ],
+    "tris": 9999,
+    "bytes": 97812,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "doppelseitige Materialien: opaque__plastic__black_a"
+  },
+  "sign_cone": {
+    "file": "sign_cone.glb",
+    "source": "nvidia/simready-assets:sign_floor_movable_a01/simready_usd/sm_sign_floor_movable_a01_01.usd",
+    "size": [
+      0.382,
+      1.297,
+      0.408
+    ],
+    "tris": 9962,
+    "bytes": 295968,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "doppelseitige Materialien: opaque__paper__black_a, opaque__plastic__gray_standard_a"
+  },
+  "barrier_plastic": {
+    "file": "barrier_plastic.glb",
+    "source": "nvidia/simready-assets:barrier_wall_plastic_orange_a03/simready_usd/sm_barrier_wall_plastic_orange_a03_01.usd",
+    "size": [
+      1.829,
+      2.036,
+      0.471
+    ],
+    "tris": 9978,
+    "bytes": 341396,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "doppelseitige Materialien: opaque__plastic__black_standard_cap_a, opaque__plastic__glossy_white_standard_cap2_a, opaque__metal__unique_clips_a"
+  },
+  "first_aid": {
+    "file": "first_aid.glb",
+    "source": "nvidia/simready-assets:safety_firstAidCabinet_wallMounted_a01/simready_usd/sm_safety_firstAidCabinet_wallMounted_a01_01.usd",
+    "size": [
+      0.18,
+      0.468,
+      0.371
+    ],
+    "tris": 9923,
+    "bytes": 114088,
+    "front": "+X",
+    "license": "CC-BY-4.0",
+    "notes": "front = Tür; Rückseite (-X) an die Wand; doppelseitige Materialien: m_opaque__metal__paintedNoise_green_a01"
+  },
+  "trash_bin": {
+    "file": "trash_bin.glb",
+    "source": "nvidia/simready-assets:wasteManagement_trashBin_wheeled_a01/simready_usd/sm_wasteManagement_trashBin_wheeled_a01_01.usd",
+    "size": [
+      0.664,
+      1.207,
+      0.76
+    ],
+    "tris": 9913,
+    "bytes": 120424,
+    "front": "+Z",
+    "license": "CC-BY-4.0",
+    "notes": "Griff und Räder hinten (-Z); Deckel als eigener Knoten; Bewegliche Teile als eigene Knoten: lid_01"
+  },
+  "lockers": {
+    "file": "lockers.glb",
+    "source": "nvidia/simready-assets:facilityFurniture_lockerUnit_multiDoor_a01/simready_usd/sm_facilityFurniture_lockerUnit_multiDoor_a01_01.usd",
+    "size": [
+      0.51,
+      2.001,
+      1.039
+    ],
+    "tris": 23491,
+    "bytes": 453024,
+    "front": "+X",
+    "license": "CC-BY-4.0",
+    "notes": "front = Türen; Dreiecksbudget 10000 überschritten"
+  },
+  "dock_door": {
+    "file": "dock_door.glb",
+    "source": "nvidia/simready-assets:structure_wall_entrance_a01/simready_usd/sm_structure_wall_entrance_a01_01.usd",
+    "size": [
+      4.773,
+      11.101,
+      12
+    ],
+    "tris": 9992,
+    "bytes": 679568,
+    "front": "+X",
+    "license": "CC-BY-4.0",
+    "notes": "Wandsegment (12 m breit, 11 m hoch) mit Stahlrahmen, Tor und Ladebrücke; front = Hallenseite; Texturen auf 512 px begrenzt; doppelseitige Materialien: 6 Materialien, z. B. m_opaque__metal__steel_gray_entrance_a01, m_opaque__paper__structure_wall_entrance_a01, m_opaque__metal__gray_a01; UDIM-Kacheln (3) zu Texturatlas zusammengefasst"
+  },
+  "ceiling_light": {
+    "file": "ceiling_light.glb",
+    "source": "nvidia/simready-assets:lamp_ceiling_1m_rectangle_a01/simready_usd/sm_lamp_ceiling_1m_rectangle_a01_01.usd",
+    "size": [
+      1,
+      0.3,
+      0.4
+    ],
+    "tris": 9977,
+    "bytes": 81636,
+    "front": "n/a",
+    "license": "CC-BY-4.0",
+    "notes": "Leuchtfläche als Emissive; doppelseitige Materialien: m_opaque__metal__glossy_a01, m_opaque__plastic__emissive_ceilingLamp_a01; leuchtend (emissive): m_opaque__plastic__emissive_ceilingLamp_a01"
+  }
+}
