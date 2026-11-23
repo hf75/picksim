@@ -54,6 +54,7 @@ export default {
     const d2 = signMesh(ctx, doorTex, 4, 4.2); d2.position.set(14.5, 2.1, -HALL.d / 2 + 0.16); root.add(d2);
     // Oberlichter Nordwand
     for (let x = -14; x <= 8; x += 5.5) {
+      if (Math.abs(x + 3) < 1) continue;   // hinter der Wandschrift (x = -3) kein Fenster – es schien je nach Blickwinkel durch
       const w = windowMesh(ctx, { w: 3.6, h: 1.1, glow: 0.95, cols: 6, rows: 1, frameColor: 0x30363f });
       w.position.set(x, 6.4, -HALL.d / 2 + 0.16); root.add(w);
     }

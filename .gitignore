@@ -5,4 +5,6 @@ tools/.cert/
 .claude/
 node_modules/
 dist-artifact/
+# Werbevideo für soziale Medien (Kamerafahrten-Skript und fertige Videos)
+promo/
 *.log

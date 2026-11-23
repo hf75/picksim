@@ -107,6 +107,17 @@ export class Engine extends THREE.EventDispatcher {
       ao.blendIntensity = 0.85;
       ao.updateGtaoMaterial({ radius: 0.6, distanceExponent: 1.5, thickness: 1.5, scale: 1.0, samples: 12, distanceFallOff: 1.0, screenSpaceRadius: false });
       ao.updatePdMaterial({ lumaPhi: 10, depthPhi: 2, normalPhi: 3, radius: 6, rings: 2, samples: 12 });
+      // Sprites (Infopunkte) und durchsichtige Flächen ohne Tiefenschreiben (Folien, Lichtzeiger) werfen keine
+      // Verdeckung – sonst zeichnet GTAO ihr Rechteck als dunkles Quadrat in die Wand dahinter.
+      ao._overrideVisibility = function () {
+        const cache = this._visibilityCache;
+        this.scene.traverse(o => {
+          if (!o.visible) return;
+          const m = o.material;
+          const soft = o.isPoints || o.isLine || o.isLine2 || o.isSprite || (m && !Array.isArray(m) && m.transparent && m.depthWrite === false);
+          if (soft) { o.visible = false; cache.push(o); }
+        });
+      };
       composer.addPass(ao);
       this.aoPass = ao;
     }
