@@ -3,7 +3,7 @@
 import * as THREE from 'three';
 import { buildHall, setupLighting, captureEnvironment, bakeFloorAO, dust, floorLines, boxGeo, mergeToMesh } from '../core/env.js';
 import { shelfRow, Atlas, AtlasInstances, ModelInstances, atlasInstancedMaterial, binGeometry, simpleCart, signMesh, windowMesh, labelStrips } from '../core/builders.js';
-import { locationLabel, makeCanvas, drawEAN, makeEAN, signCanvas, FONT, MONO, wrapText, shade, drawIcon } from '../core/canvas.js';
+import { locationLabel, makeCanvas, drawEAN, makeEAN, signCanvas, FONT, MONO, wrapText, wrapLines, shade, drawIcon } from '../core/canvas.js';
 import { Interaction, fitObject, roundRect } from '../core/interaction.js';
 import { fmtTime, fmtNum } from '../sim/mission.js';
 import { groundCenter } from '../core/assets.js';
@@ -106,6 +106,13 @@ function makeCatalog() {
     if (list.length > 50) list.slice(50).forEach(s => skus.splice(skus.indexOf(s), 1));
   }
   return skus;
+}
+
+/** Zahl und Einheit (und „Gr. 10“) mit geschütztem Leerzeichen verbinden, damit der Umbruch sie nicht trennt */
+function keepUnits(name) {
+  return name
+    .replace(/(\d)\s+(?=(mm|cm|m|g|kg|ml|l|W|V|A|Nm|St\.|Bogen|Paar)(\s|$))/g, '$1 ')
+    .replace(/(Gr\.)\s+(?=\d)/g, '$1 ');
 }
 
 // ------------------------------------------------------------------ Grafiken
@@ -671,19 +678,30 @@ export default {
       g.fillText(`KUNDE: ${o.customer}`.slice(0, 44), 46, 106);
       g.fillText(`DATUM: ${new Date().toLocaleDateString('de-DE')}   SORT: ${o.sorted ? 'LAGERPLATZ' : 'ART.-NR.'}`, 46, 130);
       g.fillRect(46, 140, W - 92, 2);
-      g.font = `700 17px ${MONO}`;
-      g.fillText('POS PLATZ    ART-NR  BEZEICHNUNG         MENGE', 46, 168);
+      // Spalten aus der tatsächlichen Schriftbreite ableiten, damit Kopfzeile und Positionen bündig stehen
+      const fRow = `600 19px ${MONO}`, fHead = `700 17px ${MONO}`, fName = `500 17px ${MONO}`;
+      g.font = fRow;
+      const colPlatz = 46 + g.measureText('00  ').width;
+      const colArt = 46 + g.measureText('00  A-00-0  ').width;
+      const colName = 46 + g.measureText('00  A-00-0  00000  ').width;
+      const qtyRight = W - 74;                                   // rechte Kante der Mengenspalte, danach das Kästchen
+      g.font = fHead;
+      const nameMax = qtyRight - g.measureText('MENGE').width - 14 - colName;   // Bezeichnung endet vor der Mengenspalte
+      g.fillText('POS', 46, 168); g.fillText('PLATZ', colPlatz, 168); g.fillText('ART-NR', colArt, 168); g.fillText('BEZEICHNUNG', colName, 168);
+      g.textAlign = 'right'; g.fillText('MENGE', qtyRight, 168); g.textAlign = 'left';
       let y = 210;
       o.view.forEach((ln, i) => {
-        g.font = `600 19px ${MONO}`; g.fillStyle = ink;
+        g.font = fRow; g.fillStyle = ink;
         g.fillText(`${String(i + 1).padStart(2, ' ')}  ${ln.loc.code}  ${ln.sku.art}`, 46, y);
-        g.font = `500 17px ${MONO}`;
-        const name = ln.sku.name.length > 24 ? ln.sku.name.slice(0, 23) + '.' : ln.sku.name;
-        g.fillText(name, 46 + 26 * 11.2, y);
-        g.font = `800 24px ${MONO}`;
-        g.fillText(String(ln.qty), W - 92, y + 1);
+        // lange Bezeichnungen zweizeilig statt in Menge und Kästchen hinein
+        g.font = fName;
+        const nameLines = wrapLines(g, keepUnits(ln.sku.name), nameMax, 2);
+        nameLines.forEach((t, k) => g.fillText(t, colName, y + k * 20));
+        g.font = `800 24px ${MONO}`; g.textAlign = 'right';
+        g.fillText(String(ln.qty), qtyRight, y + 1);
+        g.textAlign = 'left';
         g.font = `500 15px ${MONO}`; g.fillStyle = '#666';
-        g.fillText(ln.sku.pack, 46 + 26 * 11.2, y + 22);
+        g.fillText(ln.sku.pack, colName, y + 2 + nameLines.length * 20);
         // Häkchen (Bleistift)
         g.strokeStyle = '#3b3f8f'; g.lineWidth = 2;
         g.strokeRect(W - 60, y - 22, 26, 26);
@@ -700,6 +718,9 @@ export default {
       g.fillText('Zum Abhaken: Tasten 1-9 (VR: auf Zeile zeigen)', 46, H - 40);
       ui.device.update();
     }
+
+    // Fehlersuche (wie window.__picksimL4): Pickliste mit beliebigem Auftrag zeichnen
+    window.__picksimL1 = { state, orders, drawList };
 
     // VR: Klemmbrett in der linken Hand
     const clip = new THREE.Group(); clip.name = 'clipboard';
@@ -1029,6 +1050,7 @@ export default {
         engine.removeEventListener('xrstart', placeClip); engine.removeEventListener('xrend', placeClip); input.removeEventListener('controllerconnected', placeClip);
         player.removeEventListener('attach', updateObjective); player.removeEventListener('detach', updateObjective);
         if (clip.parent) clip.parent.remove(clip);
+        if (window.__picksimL1) delete window.__picksimL1;
       },
     };
   },

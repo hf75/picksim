@@ -179,6 +179,32 @@ export function wrapText(g, text, x, y, maxW, lh) {
   return y;
 }
 
+/** Bricht Text in höchstens maxLines Zeilen der Breite maxW um (aktuelle Schrift von g).
+ *  Getrennt wird an Leerzeichen, zu lange Wörter notfalls mit Bindestrich; passt der Rest nicht, endet die letzte Zeile mit „…“. */
+export function wrapLines(g, text, maxW, maxLines = 2) {
+  const fits = s => g.measureText(s).width <= maxW;
+  const lines = [];
+  let cur = '';
+  for (let w of String(text).split(' ')) {
+    const t = cur ? cur + ' ' + w : w;
+    if (fits(t)) { cur = t; continue; }
+    if (cur) { lines.push(cur); cur = ''; }
+    while (!fits(w)) {
+      let k = w.length - 1;
+      while (k > 1 && !fits(w.slice(0, k) + '-')) k--;
+      lines.push(w.slice(0, k) + '-'); w = w.slice(k);
+    }
+    cur = w;
+  }
+  if (cur) lines.push(cur);
+  if (lines.length <= maxLines) return lines;
+  const out = lines.slice(0, maxLines);
+  let last = out[maxLines - 1];
+  while (last.length > 1 && !fits(last + '…')) last = last.slice(0, -1);
+  out[maxLines - 1] = last.trimEnd() + '…';
+  return out;
+}
+
 export function shade(hex, amt) {
   const n = parseInt(hex.replace('#', ''), 16);
   let r = (n >> 16) & 255, gg = (n >> 8) & 255, b = n & 255;
