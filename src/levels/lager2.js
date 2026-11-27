@@ -466,12 +466,37 @@ export default {
     // ---------------- Scanner (MDE) in der Hand + Laser
     const scanner = makeScanner(ctx);
     scanner.group.visible = false;
+    let hiddenModel = null;   // Controller-Modell, das der Scanner in VR ersetzt
     const placeScanner = () => {
       const c = input.controller('right');
-      if (engine.isXR && c) { c.grip.add(scanner.group); scanner.group.position.set(0, -0.02, -0.03); scanner.group.rotation.set(-0.35, 0, 0); scanner.group.scale.setScalar(1); }
-      else { engine.camera.add(scanner.group); scanner.group.position.set(0.25, -0.27, -0.52); scanner.group.rotation.set(0.12, -0.12, 0.05); scanner.group.scale.setScalar(1); }
+      if (hiddenModel) { hiddenModel.visible = true; hiddenModel = null; }
+      if (engine.isXR && c) {
+        // Griffraum (WebXR): −Z zeigt den Griff hinauf zum Daumen, −Y nach vorn, +Y den Arm entlang
+        c.grip.add(scanner.group); scanner.group.position.set(0, 0, 0); scanner.group.rotation.set(-Math.PI / 2, 0, 0);
+        if (state.hasMDE && c.model) { c.model.visible = false; hiddenModel = c.model; }   // Scanner statt Controller in der Hand
+      } else {
+        // rechts unten im Bild, Lesefenster zur Bildmitte gedreht (der Laser verläuft dann aus dem Fenster zum Ziel)
+        engine.camera.add(scanner.group); scanner.group.position.set(0.20, -0.27, -0.40); scanner.group.rotation.set(0.18, 0.35, -0.10);
+      }
+      scanner.group.scale.setScalar(1);
       scanner.group.visible = state.hasMDE;
     };
+    // VR: Lesefenster genau in Richtung des Zeigestrahls drehen (Strahl und Griff stehen je nach Controller verschieden
+    // zueinander); der Griff zeigt dabei so weit wie möglich zum Daumen hin (−Z des Griffraums)
+    const _qg = new THREE.Quaternion(), _qr = new THREE.Quaternion(), _fwd = new THREE.Vector3(), _up = new THREE.Vector3(), _bz = new THREE.Vector3(), _bx = new THREE.Vector3(), _bm = new THREE.Matrix4();
+    const _qTilt = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), -(scanner.group.userData.windowTilt || 0));
+    function alignScannerToRay() {
+      const c = input.controller('right');
+      if (!engine.isXR || !c || scanner.group.parent !== c.grip) return;
+      c.grip.getWorldQuaternion(_qg); c.ray.getWorldQuaternion(_qr);
+      _fwd.set(0, 0, -1).applyQuaternion(_qg.invert().multiply(_qr));   // Strahlrichtung im Griffraum
+      _up.set(0, 0, -1); _up.addScaledVector(_fwd, -_up.dot(_fwd));      // Griff hinauf, senkrecht zur Leserichtung
+      if (_up.lengthSq() < 1e-4) { scanner.group.rotation.set(-Math.PI / 2, 0, 0); return; }
+      _up.normalize();
+      _bz.copy(_fwd).negate();
+      _bx.crossVectors(_up, _bz);
+      scanner.group.quaternion.setFromRotationMatrix(_bm.makeBasis(_bx, _up, _bz)).multiply(_qTilt);   // Fenster (nicht Gruppe) auf den Strahl
+    }
     placeScanner();
     const laser = new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), new THREE.Vector3(0, 0, -1)]), new THREE.LineBasicMaterial({ color: 0xff2020, transparent: true, opacity: 0.9, toneMapped: false, depthTest: false }));
     laser.frustumCulled = false; laser.visible = false; laser.renderOrder = 50; laser.userData.noEnvCapture = true;
@@ -857,6 +882,7 @@ export default {
         if (f.t >= 1) { flights.splice(i, 1); audio.play('put'); }
       }
       if (wrapAnim) wrapAnim(dt);
+      alignScannerToRay();
       if (laserT > 0) { laserT -= dt; if (laserT <= 0) { laser.visible = false; laserDot.visible = false; } }
       if (state.flash && state.flash.t > 0) { state.flash.t -= dt; if (state.flash.t <= 0) drawDevice(); }
       engine.headPosition(headP);
@@ -1020,6 +1046,7 @@ export default {
         engine.removeEventListener('quality', updatePalletLOD);
         player.removeEventListener('attach', updateObjective); player.removeEventListener('detach', updateObjective);
         for (const v of vehicles) v.dispose();
+        if (hiddenModel) { hiddenModel.visible = true; hiddenModel = null; }
         scanner.group.removeFromParent();
         wrist.removeFromParent();
       },
@@ -1052,33 +1079,36 @@ function fallbackJack(ctx) {
   return g;
 }
 
+// Handscanner in „Haltekoordinaten“: Ursprung = Griffmitte (dort sitzt die Faust), +Y = den Griff hinauf zum Kopf,
+// −Z = Leserichtung (Lesefenster), +X = rechts. Desktop und VR legen danach nur noch Lage und Neigung der Gruppe fest.
 function makeScanner(ctx) {
   const { assets, mat } = ctx;
   const group = new THREE.Group();
+  const holder = new THREE.Group();
   const nose = new THREE.Object3D();
-  const tpl = assets.templates.get('scanner_handheld');
-  if (tpl) {
+  if (assets.templates.get('scanner_handheld')) {
     const m = assets.get('scanner_handheld');
-    const holder = new THREE.Group(); holder.add(m);
-    const s = new THREE.Box3().setFromObject(holder).getSize(new THREE.Vector3());
-    // längste horizontale Achse nach vorne (−Z)
-    if (s.x > s.z) m.rotation.y = Math.PI / 2;
-    m.rotation.y += Math.PI * (ctx.scannerFlip ? 1 : 0);
-    const k = 0.2 / Math.max(s.x, s.y, s.z);
-    holder.scale.setScalar(k);
-    holder.updateMatrixWorld(true);
-    const b = new THREE.Box3().setFromObject(holder);
-    const c = b.getCenter(new THREE.Vector3());
-    holder.position.sub(c);
-    group.add(holder);
-    nose.position.set(0, (b.max.y - c.y) * 0.55, b.min.z - c.z);
+    // Das Modell liegt „auf dem Bauch“: Kopf bei +Z, Griffende bei −Z, Lesefenster nach −Y, Rückseite mit LED nach +Y.
+    // Aufrichten: Kopf (+Z) nach oben, Rückseite (+Y) zum Nutzer (+Z), Lesefenster damit nach vorn (−Z).
+    const R = new THREE.Matrix4().makeBasis(new THREE.Vector3(-1, 0, 0), new THREE.Vector3(0, 0, 1), new THREE.Vector3(0, 1, 0));
+    const b = new THREE.Box3().setFromObject(m), cx = (b.min.x + b.max.x) / 2;
+    const win = new THREE.Vector3(cx, b.min.y + 0.014, b.max.z - 0.023).applyMatrix4(R);   // Mitte des Lesefensters
+    const grip = new THREE.Vector3(cx, b.min.y + 0.04, b.min.z + 0.05).applyMatrix4(R);    // Mitte des Griffs
+    m.quaternion.setFromRotationMatrix(R);
+    m.position.copy(grip).negate();
+    holder.add(m);
+    nose.position.copy(win).sub(grip).add(new THREE.Vector3(0, 0, -0.006));
+    holder.rotation.x = -0.23;   // der Griff des Modells steht etwa 13° schräg: senkrecht in die Faust stellen
   } else {
+    // Ersatzmodell, falls die 3D-Datei fehlt
     const yel = mat.basic(0xf2b705, 0.5, 0.1), blk = mat.basic(0x1d1d1f, 0.6, 0.1);
-    group.add(mergeToMesh([boxGeo(0.06, 0.05, 0.17, 0, 0.02, 0)], yel));
-    group.add(mergeToMesh([boxGeo(0.045, 0.11, 0.05, 0, -0.06, 0.05), boxGeo(0.065, 0.055, 0.03, 0, 0.02, -0.095)], blk));
-    nose.position.set(0, 0.02, -0.11);
+    holder.add(mergeToMesh([boxGeo(0.06, 0.05, 0.17, 0, 0.08, -0.05)], yel));
+    holder.add(mergeToMesh([boxGeo(0.045, 0.11, 0.05, 0, 0, 0), boxGeo(0.065, 0.055, 0.03, 0, 0.08, -0.145)], blk));
+    nose.position.set(0, 0.08, -0.16);
   }
-  group.add(nose);
+  holder.add(nose);
+  group.add(holder);
+  group.userData.windowTilt = holder.rotation.x;   // Lesefenster zeigt um diesen Winkel unter −Z der Gruppe
   group.traverse(o => { if (o.isMesh) { o.castShadow = false; o.receiveShadow = false; } });
   group.userData.noEnvCapture = true;
   return { group, nose };
