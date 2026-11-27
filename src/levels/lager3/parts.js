@@ -99,11 +99,13 @@ export function flowRackRow(ctx, { x = 0, z = 0, ry = 0, bays = 5, bayW = 1.2, d
       dg.translate(px, y0 + 0.3, -depth / 2);
       posts.push(dg);
     }
-    posts.push(boxGeo(0.05, 0.05, depth, px, 0.06, -depth / 2));
+    posts.push(boxGeo(0.05, 0.05, depth - 0.14, px, 0.06, -depth / 2));   // Bodenholm zwischen vorderem und hinterem Ständer
   }
+  // Keine Fläche darf deckungsgleich mit einer Ständerfläche liegen (sonst Z-Fighting, das beim Gehen flackert):
+  // Traversen enden in den äußeren Ständern und sitzen 5 mm hinter der Ständervorderkante.
   for (const fy of frontYs) {
-    beams.push(boxGeo(W + 0.07, 0.07, 0.05, 0, fy - 0.035, -0.025));                 // vordere Traverse (türkis)
-    beams.push(boxGeo(W + 0.07, 0.07, 0.05, 0, fy + rise - 0.035, -depth + 0.025));  // hintere Traverse
+    beams.push(boxGeo(W, 0.07, 0.05, 0, fy - 0.035, -0.03));                         // vordere Traverse (türkis)
+    beams.push(boxGeo(W, 0.07, 0.05, 0, fy + rise - 0.035, -depth + 0.03));          // hintere Traverse
     rails.push(boxGeo(W, 0.066, 0.025, 0, fy - 0.035, 0.0125));                       // PTL-Schiene (Alu)
     // Rollenbahnen je Lane (2 Spuren) + Führungsleisten
     for (let b = 0; b < bays; b++) {
@@ -126,8 +128,8 @@ export function flowRackRow(ctx, { x = 0, z = 0, ry = 0, bays = 5, bayW = 1.2, d
       }
     }
   }
-  // Kopfträger oben (für Zonenschild)
-  beams.push(boxGeo(W + 0.07, 0.12, 0.06, 0, postH - 0.06, -0.035));
+  // Kopfträger oben (für Zonenschild): steht seitlich und oben je 5 mm über die Ständer hinaus
+  beams.push(boxGeo(W + 0.08, 0.12, 0.06, 0, postH - 0.055, -0.035));
   g.add(mergeToMesh(posts, frameMat, { name: 'posts' }));
   g.add(mergeToMesh(beams, beamMat, { name: 'beams' }));
   g.add(mergeToMesh(rails, alu, { name: 'ptl-rails' }));
